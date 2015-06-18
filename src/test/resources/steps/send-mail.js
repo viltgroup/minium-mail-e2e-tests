@@ -1,3 +1,5 @@
+var form  = require("form");
+
 Given(/^I'm at sample app/, function() {
     browser.get(config.baseUrl);
 });
@@ -11,21 +13,12 @@ When(/^I click on button "(.*)"$/, function(btnLabel) {
 });
 
 When(/^I fill:$/, function(datatable) {
-
-    var inputs = base.find("input, textarea, select, [contenteditable]");
     var values = datatable.rowsHash();
 
     for (var prop in values) {
         var val = values[prop];
         var colName = prop;
-
-        var fieldInput = $(inputs.withAttr("data-placeholder", colName), inputs.withLabel(colName + ':'));
-
-        if (fieldInput.is("select")) {
-            fieldInput.select(val);
-        } else {
-            fieldInput.fill(val);
-        }
+        form.fillFld(colName,val);
     }
 });
 
@@ -35,15 +28,14 @@ Then(/^I navigate to section "(.*?)"$/, function(section) {
 });
 
 
-
 Then(/^I should see an email with:$/, function(datatable) {
     var values = datatable.rowsHash();
     var rows = base.find("table tr");
-    
+
     for (var prop in values) {
         var val = values[prop];
         var colName = "." + prop;
-        
+
         var elem = rows.find(colName).withText(val);
         expect(elem).to.have.size(1);
     }
