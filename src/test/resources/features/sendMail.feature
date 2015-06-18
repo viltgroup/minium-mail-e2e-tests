@@ -1,18 +1,17 @@
 # language: en
 # ------------------------------------------------------------------------------
-Feature: Search results in Google
+Feature: Send an Email
 
-  Scenario: Search something in google
-    Given I'm at http://www.google.com/ncr
-    When I search for minium github
-    Then a link for https://github.com/viltgroup/minium is displayed
+  Background: 
+    Given I'm at sample app
 
-  Scenario Outline: Search something in google (results in a JSON file)
-    Given I'm at http://www.google.com/ncr
-    When I search for <search_query>
-    Then links corresponding to <search_query> are displayed
-
-    Examples: 
-      | search_query  |
-      | Minium Github |
-      | Selenium      |
+  Scenario: Send an Email
+    When I click on button "New"
+    And I fill the field "To" with "Rui Figueira"
+    And I fill the field "Subject" with "Minium Test"
+    And I fill the field "Message" with "My new Message"
+    And I click on button "Send"
+    Then I navigate to section "Sent"
+    And I should see an email with "Contact" equals to "Rui Figueira"
+    And I should see an email with "Subject" equals to "Minium Test"
+    And I should see an email with "Message" equals to "My new Message"

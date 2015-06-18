@@ -8,6 +8,7 @@ minium:
 
 # Configuration that can be injected in your tests
   config:
+    baseUrl: file:///home/raphael/workspace/sample-app/index.html
     searches:
       Minium Github:
         - https://github.com/viltgroup/minium

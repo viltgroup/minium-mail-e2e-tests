@@ -1,29 +1,88 @@
-Given(/^I'm at (.*)$/, function (url) {
-  browser.get(url);
+Given(/^I'm at sample app/, function() {
+    browser.get(config.baseUrl);
 });
 
-When(/^I search for (.*)$/, function (query) {
-  var searchbox = $(":input").withName("q");
-  var button    = $("button").withAttr("aria-label", "Google Search");
+var loading = $(".loading").withCss("display", "block");
+// This base expression always returns the scope we're working on: The main window unless a modal is visible and a loding is visible
+var base = $(":root").unless(".modal:visible").add(".modal:visible").unless(loading);
 
-  searchbox.fill(query);
-  button.click();
+
+When(/^I fill the field "(.*?)" with "(.*?)"$/, function(field, value) {
+    var inputs = base.find("input, textarea, select, [contenteditable]");
+
+    var fieldInput = $(inputs.withAttr("data-placeholder", field), inputs.withLabel(field + ':'));
+
+    if (fieldInput.is("select")) {
+        fieldInput.select(value);
+    } else {
+        fieldInput.fill(value);
+    }
 });
 
-Then(/^a link for (.*) is displayed$/, function (linkUrl) {
-  var links = $("a");
-  var link  = links.withAttr("data-href", linkUrl).add(links.withAttr("href", linkUrl));
-  expect(link).to.have.size(1);
+
+When(/^I click on button "(.*)"$/, function(btnLabel) {
+    clickOnButton(btnLabel);
 });
 
-Then(/^links corresponding to (.*) are displayed$/, function (query) {
-  var links = $("a");
-  var linkUrls = config.searches[query];
 
-  expect(linkUrls).not.to.be.empty();
-
-  linkUrls.forEach(function (linkUrl) {
-    var link = links.withAttr("data-href", linkUrl).add(links.withAttr("href", linkUrl));
-    expect(link).to.have.size(1);
-  });
+Then(/^I navigate to section "(.*?)"$/, function(section) {
+    var menu = base.find("#folders li").withText(section);
+    menu.click();
 });
+
+
+Then(/^I should see an email with "(.*?)" equals to "(.*?)"$/, function(field, value) {
+    var rows = base.find("table tr");
+    var colName = "." + field;
+
+    var elem = rows.find(colName).withText(value);
+    expect(elem).to.have.size(1);
+});
+
+
+Then(/^I should see an email with:$/, function(datatable) {
+    var values = datatable.rowsHash();
+    var rows = base.find("table tr");
+
+    for (var prop in values) {
+        var val = values[prop];
+        var colName = "." + prop;
+
+        var elem = rows.find(colName).withText(val);
+        expect(elem).to.have.size(1);
+    }
+});
+
+When(/^I click on the email with:$/, function(datatable) {
+    var values = datatable.rowsHash();
+    for (var prop in values) {
+        var val = values[prop];
+        var colName = "." + prop;
+
+        var elem = base.find(colName).withText(val);
+        elem.click();
+    }
+});
+
+When(/^I delete an email with Subject "(.*?)"$/, function(subject) {
+    clickOnEmailWithSubject(subject);
+    clickOnButton("delete");
+});
+
+When(/^I move an email with Subject "(.*?)" to "(.*?)"$/, function(subject, section) {
+    clickOnEmailWithSubject(subject);
+    clickOnButton("move");
+    var menuElem = $(".move-to-selector ul li").withText("later");
+    menuElem.click();
+});
+
+
+function clickOnEmailWithSubject(subject) {
+    var elem = $(".Subject").withText(subject);
+    elem.click();
+}
+
+function clickOnButton(btnLabel) {
+    var btn = $("button").withText(btnLabel);
+    btn.click();
+}
