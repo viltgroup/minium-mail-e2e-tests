@@ -6,24 +6,28 @@ var loading = $(".loading").withCss("display", "block");
 // This base expression always returns the scope we're working on: The main window unless a modal is visible and a loding is visible
 var base = $(":root").unless(".modal:visible").add(".modal:visible").unless(loading);
 
-
-When(/^I fill the field "(.*?)" with "(.*?)"$/, function(field, value) {
-    var inputs = base.find("input, textarea, select, [contenteditable]");
-
-    var fieldInput = $(inputs.withAttr("data-placeholder", field), inputs.withLabel(field + ':'));
-
-    if (fieldInput.is("select")) {
-        fieldInput.select(value);
-    } else {
-        fieldInput.fill(value);
-    }
-});
-
-
 When(/^I click on button "(.*)"$/, function(btnLabel) {
     clickOnButton(btnLabel);
 });
 
+When(/^I fill:$/, function(datatable) {
+
+    var inputs = base.find("input, textarea, select, [contenteditable]");
+    var values = datatable.rowsHash();
+
+    for (var prop in values) {
+        var val = values[prop];
+        var colName = prop;
+
+        var fieldInput = $(inputs.withAttr("data-placeholder", colName), inputs.withLabel(colName + ':'));
+
+        if (fieldInput.is("select")) {
+            fieldInput.select(val);
+        } else {
+            fieldInput.fill(val);
+        }
+    }
+});
 
 Then(/^I navigate to section "(.*?)"$/, function(section) {
     var menu = base.find("#folders li").withText(section);
@@ -31,23 +35,15 @@ Then(/^I navigate to section "(.*?)"$/, function(section) {
 });
 
 
-Then(/^I should see an email with "(.*?)" equals to "(.*?)"$/, function(field, value) {
-    var rows = base.find("table tr");
-    var colName = "." + field;
-
-    var elem = rows.find(colName).withText(value);
-    expect(elem).to.have.size(1);
-});
-
 
 Then(/^I should see an email with:$/, function(datatable) {
     var values = datatable.rowsHash();
     var rows = base.find("table tr");
-
+    
     for (var prop in values) {
         var val = values[prop];
         var colName = "." + prop;
-
+        
         var elem = rows.find(colName).withText(val);
         expect(elem).to.have.size(1);
     }
@@ -78,7 +74,7 @@ When(/^I move an email with Subject "(.*?)" to "(.*?)"$/, function(subject, sect
 
 
 function clickOnEmailWithSubject(subject) {
-    var elem = $(".Subject").withText(subject);
+    var elem = $(".mailSubject").withText(subject);
     elem.click();
 }
 
