@@ -4,13 +4,15 @@ Feature: Delete Emails
     Given I'm at sample app
 
   Scenario: Delete an email
+    Given an email with Subject "Minium Can!" exists
     When I delete an email with Subject "Minium Can!"
-    Then I navigate to section "Trash"
-    And I should see an email with:
+    And I navigate to section "Trash"
+    Then I should see an email with:
       | Subject | Minium Can! |
 
   Scenario: Delete an email
+    Given an email with Subject "Minium Can!" exists
     When I delete an email with Subject "Minium Can!"
-    Then I navigate to section "Trash"
-    And I should see an email with:
+    And I navigate to section "Trash"
+    Then I should see an email with:
       | Subject | Minium Can! |
