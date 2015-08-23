@@ -2,7 +2,7 @@
 # ------------------------------------------------------------------------------
 Feature: Send an Email
 
-  Background: 
+  Background:
     Given I'm at sample app
 
   Scenario: Send an Email
@@ -21,7 +21,7 @@ Feature: Send an Email
   Scenario: Reply to an Email
     When I click on the email with:
       | Subject | Ping |
-    And I click on button "reply"
+    And I click on button no match
     And I fill:
       | Message | BDD is definitely the way to create quality software |
     And I click on button "Send"
@@ -43,7 +43,7 @@ Feature: Send an Email
     And I should see an email with:
       | Contact | Rui Figueira           |
       | Subject | Fw: Ping               |
-      | Message | You should read this!! |
+      | Message | Needs to fail          |
 
   Scenario Outline: Send simple emails
     When I click on button "New"
@@ -58,7 +58,7 @@ Feature: Send an Email
       | Subject | <subject> |
       | Message | <message> |
 
-    Examples: 
+    Examples:
       | to             | subject      | message                                                 |
       | Rui Figueira   | Minium Test  | My New messages                                         |
       | Mario Lameiras | BDD + Minium | Egestas morbi at. Curabitur aliquet et commodo nonummy  |

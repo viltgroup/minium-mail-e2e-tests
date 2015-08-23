@@ -2,15 +2,19 @@ var form  = require("form");
 
 var base;
 
-Given(/^I'm at sample app/, function() {
-  browser.get(config.baseUrl);
-});
-
 World(function () {
   var loading = $(".loading").withCss("display", "block");
   // This base expression always returns the scope we're working on: The main window unless a modal is visible and a loding is visible
   base = $(":root").unless(".modal:visible").add(".modal:visible").unless(loading);
-})
+});
+
+Given(/^I fail/, function() {
+  throw "Some error";
+});
+
+Given(/^I'm at sample app/, function() {
+  browser.get(config.baseUrl);
+});
 
 Given(/^an email with (.*?) "(.*?)" exists$/, function(field, value) {
   // todo

@@ -1,7 +1,7 @@
 Feature: Move Emails
 
-  Background: 
-    Given I'm at sample app
+  Background:
+    Given I fail
 
   Scenario: Move an email
     Given an email with Subject "Minium Can!" exists under "Inbox"
