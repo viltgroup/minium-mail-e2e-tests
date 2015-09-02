@@ -1,4 +1,4 @@
-# Web Drivers   
+# Web Drivers
 minium:
   webdriver:
     desiredCapabilities:
@@ -8,4 +8,4 @@ minium:
 
 # Configuration that can be injected in your tests
   config:
-    baseUrl: http://minium.vilt.io/sampleApp/
+    baseUrl: http://minium.vilt.io/sample-app/
