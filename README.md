@@ -1,3 +1,3 @@
-# sample-app-e2e-tests
+# Minium Mail Sample app - End to end tests
 
-End to End testing for the Sample App with Minium
+End to End testing for the Minium Mail sample App with Minium
