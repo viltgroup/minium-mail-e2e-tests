@@ -4,6 +4,16 @@ var forms = require("forms"),
 
 Given(/^I'm at Minium Mail/, function() {
   browser.get(config.baseUrl);
+  // we also need to set loading timeout properly
+  if (config.loadingTimeSeconds !== undefined) {
+    var configureBtn = base.find("#configure");
+    var loadingTimeFld = base.find("input").withLabel("Loading time");
+    var saveBtn = base.find("button").withText("Save");
+    
+    configureBtn.click();
+    loadingTimeFld.fill(String(config.loadingTimeSeconds));
+    saveBtn.click();
+  }
 });
 
 Given(/^an email with (.*?) "(.*?)" exists$/, function(field, value) {
@@ -85,5 +95,11 @@ Then(/^I should see an email with:$/, function(datatable) {
   var filter = datatable.rowsHash();
   var mailRow = mails.filter(filter);
   expect(mailRow).to.exist();
+});
+
+Then(/^I shouldn't see an email with:$/, function(datatable) {
+  var filter = datatable.rowsHash();
+  var mailRow = mails.filter(filter);
+  expect(mailRow).not.to.exist();
 });
 

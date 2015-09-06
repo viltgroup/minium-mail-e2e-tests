@@ -3,7 +3,7 @@ var tables = {
    * @param tableElem string or webelement representing a table
    */
   rows: function (tableElem) {
-    tableElem = tableElem ? $(tableElem) : $("table");
+    tableElem = tableElem ? base.find(tableElem) : base.find("table");
     var filters = Array.prototype.slice.call(arguments, 1);
     var headers = tableElem.find("th");
     var cells = tableElem.find("td");

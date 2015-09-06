@@ -8,8 +8,8 @@ var mails = {
   
   move: function (filter, section) {
     var mailRow = mails.filter(filter);
-    var moveBtn = $("button").withText("Move");
-    var sectionEntry = $(".dropdown-menu a").withText(section);
+    var moveBtn = base.find("button").withText("Move");
+    var sectionEntry = base.find(".dropdown-menu a").withText(section);
     
     mailRow.click();
     moveBtn.click();
@@ -18,7 +18,7 @@ var mails = {
   
   remove: function (filter) {
     var mailRow = tables.rows("#mail-list", filter);
-    var removeBtn = $("button").withText("Delete");
+    var removeBtn = base.find("button").withText("Delete");
     
     mailRow.click();
     removeBtn.click();
