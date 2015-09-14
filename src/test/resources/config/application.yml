@@ -9,4 +9,4 @@ minium:
 # Configuration that can be injected in your tests
   config:
     baseUrl: "http://minium.vilt.io/sample-app/"
-    loadingTimeSeconds: 1
+    loadingTimeSeconds: 0

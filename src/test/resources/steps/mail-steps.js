@@ -61,7 +61,7 @@ Given(/^I'm at section "(.*?)"$/, function(section) {
 });
 
 When(/^I click on button "(.*?)"$/, function(btnLabel) {
-  var btn = $("button, .button").withText(btnLabel);
+  var btn = base.find("button, .button").withText(btnLabel);
   
   btn.click();
 });
