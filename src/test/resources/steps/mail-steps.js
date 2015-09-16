@@ -1,6 +1,6 @@
 var forms = require("forms"),
     mails = require("mails"),
-    sections = require("sections"); 
+    sections = require("sections");
 
 Given(/^I'm at Minium Mail/, function() {
   browser.get(config.baseUrl);
@@ -9,7 +9,7 @@ Given(/^I'm at Minium Mail/, function() {
     var configureBtn = base.find("#configure");
     var loadingTimeFld = base.find("input").withLabel("Loading time");
     var saveBtn = base.find("button").withText("Save");
-    
+
     configureBtn.click();
     loadingTimeFld.fill(String(config.loadingTimeSeconds));
     saveBtn.click();
@@ -19,7 +19,7 @@ Given(/^I'm at Minium Mail/, function() {
 Given(/^an email with (.*?) "(.*?)" exists$/, function(field, value) {
   var filter = {};
   filter[field] = value;
-  
+
   var mailRow = mails.filter(filter);
   expect(mailRow).to.have.size(1);
 });
@@ -28,9 +28,9 @@ Given(/^an email with (.*?) "(.*?)" exists$/, function(field, value) {
 Given(/^an email with (.*?) "(.*?)" exists under "(.*?)"$/, function(field, value, section) {
   var filter = {};
   filter[field] = value;
-  
+
   var mailRow = mails.filter(filter);
-  
+
   sections.navigate(section);
   expect(mailRow).to.have.size(1);
 });
@@ -39,9 +39,9 @@ Given(/^an email with (.*?) "(.*?)" exists under "(.*?)"$/, function(field, valu
 Given(/^an email with (.*?) "(.*?)" doesn't exist$/, function(field, value) {
   var filter = {};
   filter[field] = value;
-  
+
   var mailRow = mails.filter(filter);
-  
+
   expect(mailRow).not.to.exist();
 });
 
@@ -49,9 +49,9 @@ Given(/^an email with (.*?) "(.*?)" doesn't exist$/, function(field, value) {
 Given(/^an email with (.*?) "(.*?)" doesn't exist under "(.*?)"$/, function(field, value, section) {
   var filter = {};
   filter[field] = value;
-  
+
   var mailRow = mails.filter(filter);
-  
+
   sections.navigate(section);
   expect(mailRow).not.to.exist();
 });
@@ -62,8 +62,15 @@ Given(/^I'm at section "(.*?)"$/, function(section) {
 
 When(/^I click on button "(.*?)"$/, function(btnLabel) {
   var btn = base.find("button, .button").withText(btnLabel);
-  
+
   btn.click();
+});
+
+When(/^I fill "(.*?)" with "(.*?)"$/, function(field, val) {
+  var values = {};
+  values[field] = val;
+  
+  forms.fill(values);
 });
 
 When(/^I fill:$/, function(datatable) {
@@ -75,7 +82,7 @@ When(/^I fill:$/, function(datatable) {
 When(/^I click on the email with:$/, function(datatable) {
   var filter = datatable.rowsHash();
   var mailRow = mails.filter(filter);
-  
+
   mailRow.click();
 });
 
@@ -102,4 +109,3 @@ Then(/^I shouldn't see an email with:$/, function(datatable) {
   var mailRow = mails.filter(filter);
   expect(mailRow).not.to.exist();
 });
-
