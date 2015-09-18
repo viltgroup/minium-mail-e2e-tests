@@ -5,7 +5,23 @@ minium:
       browserName: chrome
     window:
       maximized: true
-
+  cucumber:
+    snippets:
+      - name: "Given I'm at Minium Mail"
+      - name: "Given an email with \"...\" exists"
+      - name: "Given an email with \"...\" exists under \"...\""
+      - name: "Given an email with \"...\" doesn't exist"
+      - name: "Given an email with \"...\" doesn't exist under \"...\""
+      - name: "Given I'm at section \"...\""
+      - name: "When I click on button \"...\""
+      - name: "When I fill \"...\" with \"...\""
+      - name: "When I fill:"
+      - name: "When I click on the email with:"
+      - name: "When I delete an email with Subject \"...\""
+      - name: "When I move an email with Subject \"...\" to \"...\""
+      - name: "When I navigate to section \"...\""
+      - name: "Then I should see an email with:"
+      - name: "Then I shouldn't see an email with:"
 # Configuration that can be injected in your tests
   config:
     baseUrl: http://minium.vilt.io/sample-app/
