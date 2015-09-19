@@ -3,7 +3,7 @@ var sections = {
    * @param tableElem string or webelement representing a table
    */
   navigate: function (path) {
-    var navElem = base.find(".list-group-item").has(base.find("a").contents().withText(path));
+    var navElem = base.find(".list-group-item span").withText(path);
     
     navElem.click();
   }
