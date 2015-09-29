@@ -14,9 +14,9 @@ Feature: Send Emails
     And I click on button "Send"
     And I navigate to section "Sent"
     Then I should see an email with:
-      | Recipients | Raphael Rodrigues |
-      | Subject    | Minium Test       |
-      | Message    | My new Message    |
+      | Recipients | Minium Bot     |
+      | Subject    | Minium Test    |
+      | Message    | My new Message |
 
   Scenario: Reply to an Email
     When I click on the email with:
