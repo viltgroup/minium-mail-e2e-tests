@@ -14,7 +14,7 @@ Feature: Send Emails
     And I click on button "Send"
     And I navigate to section "Sent"
     Then I should see an email with:
-      | Recipients | Minium Bot     |
+      | Recipients | Rui Figueira   |
       | Subject    | Minium Test    |
       | Message    | My new Message |
 
