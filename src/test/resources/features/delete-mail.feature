@@ -8,6 +8,7 @@ Feature: Delete Emails
     When I delete an email with Subject "Minium Can!"
     And I navigate to section "Trash"
     Then I should see an email with:
+      # @source:data/data1.csv
       | Subject | Minium Can! |
 
   Scenario: Delete an email from trash

@@ -26,3 +26,4 @@ minium:
   config:
     baseUrl: "http://minium.vilt.io/sample-app/"
     loadingTimeSeconds: 0
+    dir: ${minium.resources.dir}
