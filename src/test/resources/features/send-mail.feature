@@ -91,7 +91,7 @@ Feature: Send Emails
       | Message    | <message> |
 
     Examples: 
-      # @source:/home/raphael/workspace/minium-mail-e2e-tests/src/test/resources/data/data.csv
+      # @source:data/data.csv
       | to             | subject      | message                                                 |
       | Rui Figueira   | Minium Test  | My New messages                                         |
       | Mario Lameiras | BDD + Minium | Egestas morbi at. Curabitur aliquet et commodo nonummy  |
@@ -135,7 +135,7 @@ Feature: Send Emails
       | Message    | <message> |
 
     Examples: 
-      # @source:/home/raphael/workspace/minium-mail-e2e-tests/src/test/resources/data/data.csv
+      # @source:data/data.csv
       | to             | subject      | message                                                 |
       | Rui Figueira   | Minium Test  | My New messages                                         |
       | Mario Lameiras | BDD + Minium | Egestas morbi at. Curabitur aliquet et commodo nonummy  |
