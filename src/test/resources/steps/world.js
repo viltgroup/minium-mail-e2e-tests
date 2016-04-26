@@ -1,7 +1,7 @@
 var timeUnits = require("minium/timeunits");
 
 var base;
-var loadingUnexistenceListener, timeoutListener;
+var loadingUnexistenceListener;
 
 World(function () {
 
@@ -12,14 +12,8 @@ World(function () {
 
   // we keep a variable for our interaction listener so that we can remove it at the end of the execution
   loadingUnexistenceListener = minium.interactionListeners
-    .ensureUnexistence(loading);
-
-  timeoutListener = minium.interactionListeners
-      .onTimeout()
-      .when(loading)
-      .waitForUnexistence(loading)
-      .withWaitingPreset("slow")
-      .thenRetry();
+    .ensureUnexistence(loading)
+    .withWaitingPreset("slow");
 
   // browser configuration
   browser.configure()
@@ -31,7 +25,6 @@ World(function () {
     .done()
     .interactionListeners()
       .add(loadingUnexistenceListener)
-      .add(timeoutListener)
     .done();
 
 }, function () {
@@ -39,7 +32,6 @@ World(function () {
   // having two identical interaction listeners
   browser.configure()
     .interactionListeners()
-      .remove(timeoutListener)
       .remove(loadingUnexistenceListener)
     .done();
 

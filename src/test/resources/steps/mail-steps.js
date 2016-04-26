@@ -109,3 +109,12 @@ Then(/^I shouldn't see an email with:$/, function(datatable) {
   var mailRow = mails.filter(filter);
   expect(mailRow).not.to.exist();
 });
+
+Then(/^I should see the following emails:$/, function(datatable) {
+  var filters = datatable.hashes();
+  filters.forEach(function (filter) {
+    var mailRow = mails.filter(filter);
+    expect(mailRow).to.exist();
+  });
+});
+
