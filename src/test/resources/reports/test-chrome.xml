@@ -1,27 +1,174 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite failures="1" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="4" time="13.200487">
-<testcase classname="Search results in Google- should pass (Chrome)" name="Search something in google" time="5.343741">
-<system-out><![CDATA[Dado I'm at http://www.google.com/ncr.......................................passed
-Cuando I search for minium github...........................................passed
-Entonces a link for https://github.com/viltgroup/minium is displayed........passed
-]]></system-out>
-</testcase>
-<testcase classname="Search results in Google- should pass (Chrome)" name="Search something in google (results in a JSON file)" time="2.662656">
-<system-out><![CDATA[Dado I'm at http://www.google.com/ncr.......................................passed
-Cuando I search for Minium Github...........................................passed
-Entonces links corresponding to Minium Github are displayed.................passed
-]]></system-out>
-</testcase>
-<testcase classname="Search results in Google- should pass (Chrome)" name="Search something in google" time="2.609171">
-<system-out><![CDATA[Given I'm at http://www.google.com/ncr......................................passed
-When I search for minium github.............................................passed
-Then a link for https://github.com/viltgroup/minium is displayed............passed
-]]></system-out>
-</testcase>
-<testcase classname="Search results in Google- should pass (Chrome)" name="Search something in google (results in a JSON file)" time="2.584919">
-<system-out><![CDATA[Given I'm at http://www.google.com/ncr......................................passed
-When I search for Minium Github.............................................passed
-Then links corresponding to Minium Github are displayed.....................passed
-]]></system-out>
-</testcase>
-</testsuite>
+<?xml version="1.0" encoding="UTF-8"?><testrun name="MiniumMailE2eIT" project="minium-mail-e2e-tests" tests="110" started="110" failures="0" errors="0" ignored="0">
+  <testsuite name="minium.mail.MiniumMailE2eIT" time="80.235">
+    <testsuite name="minium.cucumber.MiniumCucumber [chrome-1]" time="38.297">
+      <testsuite name="Feature: Delete Emails" time="6.488">
+        <testsuite name="Scenario: Delete an email" time="2.721">
+          <testcase name="Given I'm at Minium Mail" classname="Scenario: Delete an email" time="1.263"/>
+          <testcase name="Given an email with Subject &quot;Minium Can!&quot; exists" classname="Scenario: Delete an email" time="0.19"/>
+          <testcase name="When I delete an email with Subject &quot;Minium Can!&quot;" classname="Scenario: Delete an email" time="1.163"/>
+          <testcase name="And I navigate to section &quot;Trash&quot;" classname="Scenario: Delete an email" time="0.102"/>
+          <testcase name="Then I should see an email with:" classname="Scenario: Delete an email" time="0.002"/>
+        </testsuite>
+        <testsuite name="Scenario: Delete an email from trash" time="2.584">
+          <testcase name="Given I'm at Minium Mail" classname="Scenario: Delete an email from trash" time="1.179"/>
+          <testcase name="Given I'm at section &quot;Trash&quot;" classname="Scenario: Delete an email from trash" time="0.084"/>
+          <testcase name="And an email with Subject &quot;Phasellus vitae interdum nulla.&quot; exists" classname="Scenario: Delete an email from trash" time="0.185"/>
+          <testcase name="When I delete an email with Subject &quot;Phasellus vitae interdum nulla.&quot;" classname="Scenario: Delete an email from trash" time="1.134"/>
+          <testcase name="Then I shouldn't see an email with:" classname="Scenario: Delete an email from trash" time="0.002"/>
+        </testsuite>
+      </testsuite>
+      <testsuite name="Feature: Move Emails" time="2.991">
+        <testsuite name="Scenario: Move an email" time="2.991">
+          <testcase name="Given I'm at Minium Mail" classname="Scenario: Move an email" time="1.159"/>
+          <testcase name="Given an email with Subject &quot;Minium Can!&quot; exists under &quot;Inbox&quot;" classname="Scenario: Move an email" time="0.168"/>
+          <testcase name="And an email with Subject &quot;Minium Can!&quot; doesn't exist under &quot;Later&quot;" classname="Scenario: Move an email" time="0.1"/>
+          <testcase name="And I'm at section &quot;Inbox&quot;" classname="Scenario: Move an email" time="0.316"/>
+          <testcase name="When I move an email with Subject &quot;Minium Can!&quot; to &quot;Later&quot;" classname="Scenario: Move an email" time="1.199"/>
+          <testcase name="And I navigate to section &quot;Later&quot;" classname="Scenario: Move an email" time="0.047"/>
+          <testcase name="Then I should see an email with:" classname="Scenario: Move an email" time="0.001"/>
+        </testsuite>
+      </testsuite>
+      <testsuite name="Feature: Send Emails" time="26.403">
+        <testsuite name="Scenario: Send an Email" time="3.102">
+          <testcase name="Given I'm at Minium Mail" classname="Scenario: Send an Email" time="1.139"/>
+          <testcase name="When I click on button &quot;Compose&quot;" classname="Scenario: Send an Email" time="0.659"/>
+          <testcase name="And I fill:" classname="Scenario: Send an Email" time="0.099"/>
+          <testcase name="And I click on button &quot;Send&quot;" classname="Scenario: Send an Email" time="1.14"/>
+          <testcase name="And I navigate to section &quot;Sent&quot;" classname="Scenario: Send an Email" time="0.064"/>
+          <testcase name="Then I should see an email with:" classname="Scenario: Send an Email" time="0.001"/>
+        </testsuite>
+        <testsuite name="Scenario: Reply to an Email" time="2.826">
+          <testcase name="Given I'm at Minium Mail" classname="Scenario: Reply to an Email" time="1.113"/>
+          <testcase name="When I click on the email with:" classname="Scenario: Reply to an Email" time="0.109"/>
+          <testcase name="And I click on button &quot;Reply&quot;" classname="Scenario: Reply to an Email" time="0.336"/>
+          <testcase name="And I fill:" classname="Scenario: Reply to an Email" time="0.078"/>
+          <testcase name="And I click on button &quot;Send&quot;" classname="Scenario: Reply to an Email" time="1.137"/>
+          <testcase name="And I navigate to section &quot;Sent&quot;" classname="Scenario: Reply to an Email" time="0.052"/>
+          <testcase name="Then I should see an email with:" classname="Scenario: Reply to an Email" time="0.001"/>
+        </testsuite>
+        <testsuite name="Scenario: Forward an Email" time="2.922">
+          <testcase name="Given I'm at Minium Mail" classname="Scenario: Forward an Email" time="1.091"/>
+          <testcase name="When I click on the email with:" classname="Scenario: Forward an Email" time="0.103"/>
+          <testcase name="And I click on button &quot;Forward&quot;" classname="Scenario: Forward an Email" time="0.463"/>
+          <testcase name="And I fill:" classname="Scenario: Forward an Email" time="0.089"/>
+          <testcase name="And I click on button &quot;Send&quot;" classname="Scenario: Forward an Email" time="1.117"/>
+          <testcase name="And I navigate to section &quot;Sent&quot;" classname="Scenario: Forward an Email" time="0.052"/>
+          <testcase name="Then I should see an email with:" classname="Scenario: Forward an Email" time="0.007"/>
+        </testsuite>
+        <testsuite name="Scenario Outline: Send simple emails" time="14.205">
+          <testsuite name="Examples:" time="14.205">
+            <testsuite name="| Rui Figueira | Minium Test | My New messages |" time="3.032">
+              <testcase name="Given I'm at Minium Mail" classname="| Rui Figueira | Minium Test | My New messages |" time="1.139"/>
+              <testcase name="When I click on button &quot;Compose&quot;" classname="| Rui Figueira | Minium Test | My New messages |" time="0.615"/>
+              <testcase name="And I fill:" classname="| Rui Figueira | Minium Test | My New messages |" time="0.096"/>
+              <testcase name="And I click on button &quot;Send&quot;" classname="| Rui Figueira | Minium Test | My New messages |" time="1.133"/>
+              <testcase name="And I navigate to section &quot;Sent&quot;" classname="| Rui Figueira | Minium Test | My New messages |" time="0.047"/>
+              <testcase name="Then I should see an email with:" classname="| Rui Figueira | Minium Test | My New messages |" time="0.001"/>
+            </testsuite>
+            <testsuite name="| Mario Lameiras | BDD + Minium | Egestas morbi at. Curabitur aliquet et commodo nonummy |" time="3.141">
+              <testcase name="Given I'm at Minium Mail" classname="| Mario Lameiras | BDD + Minium | Egestas morbi at. Curabitur aliquet et commodo nonummy |" time="1.151"/>
+              <testcase name="When I click on button &quot;Compose&quot;" classname="| Mario Lameiras | BDD + Minium | Egestas morbi at. Curabitur aliquet et commodo nonummy |" time="0.726"/>
+              <testcase name="And I fill:" classname="| Mario Lameiras | BDD + Minium | Egestas morbi at. Curabitur aliquet et commodo nonummy |" time="0.072"/>
+              <testcase name="And I click on button &quot;Send&quot;" classname="| Mario Lameiras | BDD + Minium | Egestas morbi at. Curabitur aliquet et commodo nonummy |" time="1.135"/>
+              <testcase name="And I navigate to section &quot;Sent&quot;" classname="| Mario Lameiras | BDD + Minium | Egestas morbi at. Curabitur aliquet et commodo nonummy |" time="0.055"/>
+              <testcase name="Then I should see an email with:" classname="| Mario Lameiras | BDD + Minium | Egestas morbi at. Curabitur aliquet et commodo nonummy |" time="0.002"/>
+            </testsuite>
+            <testsuite name="| Mario Lameiras | Lorem ipsum | Lorem ipsum dolor sit amet, consectetur adipiscing elit |" time="5.69">
+              <testcase name="Given I'm at Minium Mail" classname="| Mario Lameiras | Lorem ipsum | Lorem ipsum dolor sit amet, consectetur adipiscing elit |" time="1.105"/>
+              <testcase name="When I click on button &quot;Compose&quot;" classname="| Mario Lameiras | Lorem ipsum | Lorem ipsum dolor sit amet, consectetur adipiscing elit |" time="0.718"/>
+              <testcase name="And I fill:" classname="| Mario Lameiras | Lorem ipsum | Lorem ipsum dolor sit amet, consectetur adipiscing elit |" time="0.074"/>
+              <testcase name="And I click on button &quot;Send&quot;" classname="| Mario Lameiras | Lorem ipsum | Lorem ipsum dolor sit amet, consectetur adipiscing elit |" time="1.126"/>
+              <testcase name="And I navigate to section &quot;Sent&quot;" classname="| Mario Lameiras | Lorem ipsum | Lorem ipsum dolor sit amet, consectetur adipiscing elit |" time="0.052"/>
+              <testcase name="Then I should see an email with:" classname="| Mario Lameiras | Lorem ipsum | Lorem ipsum dolor sit amet, consectetur adipiscing elit |" time="2.614"/>
+            </testsuite>
+          </testsuite>
+        </testsuite>
+      </testsuite>
+    </testsuite>
+    <testsuite name="minium.cucumber.MiniumCucumber [chrome-2]" time="38.179">
+      <testsuite name="Feature: Delete Emails" time="6.152">
+        <testsuite name="Scenario: Delete an email" time="2.498">
+          <testcase name="Given I'm at Minium Mail" classname="Scenario: Delete an email" time="1.094"/>
+          <testcase name="Given an email with Subject &quot;Minium Can!&quot; exists" classname="Scenario: Delete an email" time="0.178"/>
+          <testcase name="When I delete an email with Subject &quot;Minium Can!&quot;" classname="Scenario: Delete an email" time="1.179"/>
+          <testcase name="And I navigate to section &quot;Trash&quot;" classname="Scenario: Delete an email" time="0.046"/>
+          <testcase name="Then I should see an email with:" classname="Scenario: Delete an email" time="0.001"/>
+        </testsuite>
+        <testsuite name="Scenario: Delete an email from trash" time="2.435">
+          <testcase name="Given I'm at Minium Mail" classname="Scenario: Delete an email from trash" time="1.157"/>
+          <testcase name="Given I'm at section &quot;Trash&quot;" classname="Scenario: Delete an email from trash" time="0.057"/>
+          <testcase name="And an email with Subject &quot;Phasellus vitae interdum nulla.&quot; exists" classname="Scenario: Delete an email from trash" time="0.142"/>
+          <testcase name="When I delete an email with Subject &quot;Phasellus vitae interdum nulla.&quot;" classname="Scenario: Delete an email from trash" time="1.078"/>
+          <testcase name="Then I shouldn't see an email with:" classname="Scenario: Delete an email from trash" time="0.001"/>
+        </testsuite>
+      </testsuite>
+      <testsuite name="Feature: Move Emails" time="2.77">
+        <testsuite name="Scenario: Move an email" time="2.77">
+          <testcase name="Given I'm at Minium Mail" classname="Scenario: Move an email" time="1.133"/>
+          <testcase name="Given an email with Subject &quot;Minium Can!&quot; exists under &quot;Inbox&quot;" classname="Scenario: Move an email" time="0.147"/>
+          <testcase name="And an email with Subject &quot;Minium Can!&quot; doesn't exist under &quot;Later&quot;" classname="Scenario: Move an email" time="0.097"/>
+          <testcase name="And I'm at section &quot;Inbox&quot;" classname="Scenario: Move an email" time="0.22"/>
+          <testcase name="When I move an email with Subject &quot;Minium Can!&quot; to &quot;Later&quot;" classname="Scenario: Move an email" time="1.13"/>
+          <testcase name="And I navigate to section &quot;Later&quot;" classname="Scenario: Move an email" time="0.041"/>
+          <testcase name="Then I should see an email with:" classname="Scenario: Move an email" time="0.001"/>
+        </testsuite>
+      </testsuite>
+      <testsuite name="Feature: Send Emails" time="27.041">
+        <testsuite name="Scenario: Send an Email" time="3.114">
+          <testcase name="Given I'm at Minium Mail" classname="Scenario: Send an Email" time="1.162"/>
+          <testcase name="When I click on button &quot;Compose&quot;" classname="Scenario: Send an Email" time="0.664"/>
+          <testcase name="And I fill:" classname="Scenario: Send an Email" time="0.11"/>
+          <testcase name="And I click on button &quot;Send&quot;" classname="Scenario: Send an Email" time="1.136"/>
+          <testcase name="And I navigate to section &quot;Sent&quot;" classname="Scenario: Send an Email" time="0.041"/>
+          <testcase name="Then I should see an email with:" classname="Scenario: Send an Email" time="0.001"/>
+        </testsuite>
+        <testsuite name="Scenario: Reply to an Email" time="2.84">
+          <testcase name="Given I'm at Minium Mail" classname="Scenario: Reply to an Email" time="1.116"/>
+          <testcase name="When I click on the email with:" classname="Scenario: Reply to an Email" time="0.113"/>
+          <testcase name="And I click on button &quot;Reply&quot;" classname="Scenario: Reply to an Email" time="0.35"/>
+          <testcase name="And I fill:" classname="Scenario: Reply to an Email" time="0.086"/>
+          <testcase name="And I click on button &quot;Send&quot;" classname="Scenario: Reply to an Email" time="1.123"/>
+          <testcase name="And I navigate to section &quot;Sent&quot;" classname="Scenario: Reply to an Email" time="0.052"/>
+          <testcase name="Then I should see an email with:" classname="Scenario: Reply to an Email" time="0.0"/>
+        </testsuite>
+        <testsuite name="Scenario: Forward an Email" time="3.16">
+          <testcase name="Given I'm at Minium Mail" classname="Scenario: Forward an Email" time="1.132"/>
+          <testcase name="When I click on the email with:" classname="Scenario: Forward an Email" time="0.166"/>
+          <testcase name="And I click on button &quot;Forward&quot;" classname="Scenario: Forward an Email" time="0.585"/>
+          <testcase name="And I fill:" classname="Scenario: Forward an Email" time="0.081"/>
+          <testcase name="And I click on button &quot;Send&quot;" classname="Scenario: Forward an Email" time="1.136"/>
+          <testcase name="And I navigate to section &quot;Sent&quot;" classname="Scenario: Forward an Email" time="0.056"/>
+          <testcase name="Then I should see an email with:" classname="Scenario: Forward an Email" time="0.004"/>
+        </testsuite>
+        <testsuite name="Scenario Outline: Send simple emails" time="14.124">
+          <testsuite name="Examples:" time="14.124">
+            <testsuite name="| Rui Figueira | Minium Test | My New messages |" time="2.988">
+              <testcase name="Given I'm at Minium Mail" classname="| Rui Figueira | Minium Test | My New messages |" time="1.117"/>
+              <testcase name="When I click on button &quot;Compose&quot;" classname="| Rui Figueira | Minium Test | My New messages |" time="0.603"/>
+              <testcase name="And I fill:" classname="| Rui Figueira | Minium Test | My New messages |" time="0.089"/>
+              <testcase name="And I click on button &quot;Send&quot;" classname="| Rui Figueira | Minium Test | My New messages |" time="1.132"/>
+              <testcase name="And I navigate to section &quot;Sent&quot;" classname="| Rui Figueira | Minium Test | My New messages |" time="0.045"/>
+              <testcase name="Then I should see an email with:" classname="| Rui Figueira | Minium Test | My New messages |" time="0.002"/>
+            </testsuite>
+            <testsuite name="| Mario Lameiras | BDD + Minium | Egestas morbi at. Curabitur aliquet et commodo nonummy |" time="3.119">
+              <testcase name="Given I'm at Minium Mail" classname="| Mario Lameiras | BDD + Minium | Egestas morbi at. Curabitur aliquet et commodo nonummy |" time="1.174"/>
+              <testcase name="When I click on button &quot;Compose&quot;" classname="| Mario Lameiras | BDD + Minium | Egestas morbi at. Curabitur aliquet et commodo nonummy |" time="0.701"/>
+              <testcase name="And I fill:" classname="| Mario Lameiras | BDD + Minium | Egestas morbi at. Curabitur aliquet et commodo nonummy |" time="0.072"/>
+              <testcase name="And I click on button &quot;Send&quot;" classname="| Mario Lameiras | BDD + Minium | Egestas morbi at. Curabitur aliquet et commodo nonummy |" time="1.13"/>
+              <testcase name="And I navigate to section &quot;Sent&quot;" classname="| Mario Lameiras | BDD + Minium | Egestas morbi at. Curabitur aliquet et commodo nonummy |" time="0.041"/>
+              <testcase name="Then I should see an email with:" classname="| Mario Lameiras | BDD + Minium | Egestas morbi at. Curabitur aliquet et commodo nonummy |" time="0.001"/>
+            </testsuite>
+            <testsuite name="| Mario Lameiras | Lorem ipsum | Lorem ipsum dolor sit amet, consectetur adipiscing elit |" time="5.784">
+              <testcase name="Given I'm at Minium Mail" classname="| Mario Lameiras | Lorem ipsum | Lorem ipsum dolor sit amet, consectetur adipiscing elit |" time="1.13"/>
+              <testcase name="When I click on button &quot;Compose&quot;" classname="| Mario Lameiras | Lorem ipsum | Lorem ipsum dolor sit amet, consectetur adipiscing elit |" time="0.654"/>
+              <testcase name="And I fill:" classname="| Mario Lameiras | Lorem ipsum | Lorem ipsum dolor sit amet, consectetur adipiscing elit |" time="0.074"/>
+              <testcase name="And I click on button &quot;Send&quot;" classname="| Mario Lameiras | Lorem ipsum | Lorem ipsum dolor sit amet, consectetur adipiscing elit |" time="1.13"/>
+              <testcase name="And I navigate to section &quot;Sent&quot;" classname="| Mario Lameiras | Lorem ipsum | Lorem ipsum dolor sit amet, consectetur adipiscing elit |" time="0.039"/>
+              <testcase name="Then I should see an email with:" classname="| Mario Lameiras | Lorem ipsum | Lorem ipsum dolor sit amet, consectetur adipiscing elit |" time="2.757"/>
+            </testsuite>
+          </testsuite>
+        </testsuite>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testrun>
