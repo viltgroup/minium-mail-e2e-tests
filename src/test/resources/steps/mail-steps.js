@@ -7,12 +7,24 @@ Given(/^I'm at Minium Mail/, function() {
   // we also need to set loading timeout properly
   if (config.loadingTimeSeconds !== undefined) {
     var configureBtn = base.find("#configure");
-    var loadingTimeFld = base.find("input").withLabel("Loading time");
-    var saveBtn = base.find("button").withText("Save");
 
     configureBtn.click();
-    loadingTimeFld.fill(String(config.loadingTimeSeconds));
-    saveBtn.click();
+    forms.fill({
+      "Loading time": config.loadingTimeSeconds
+    });
+    forms.submit();
+  }
+  
+  if (config.ramdomData) {
+    var generateRandomDataBtn = base.find("#generate-random-data");
+
+    generateRandomDataBtn.click();
+    forms.fill({
+      "Contacts": config.ramdomData.contacts || 0,
+      "Folders": config.ramdomData.folders || 0,
+      "Mails": config.ramdomData.mails || 0
+    });
+    forms.submit();
   }
 });
 
