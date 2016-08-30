@@ -2,7 +2,7 @@ var forms = {
 
   fill : function (vals) {
     for (var fldName in vals) {
-      var value = vals[fldName];
+      var value = String(vals[fldName]);
 
       var fld = base.find("input, textarea, select").withLabel(fldName);
 
@@ -15,7 +15,7 @@ var forms = {
   },
 
   submit : function () {
-    var btn = base.find("submit");
+    var btn = base.find(":submit");
 
     btn.click();
   }

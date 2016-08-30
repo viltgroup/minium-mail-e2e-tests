@@ -8,7 +8,8 @@ Feature: Delete Emails
     When I delete an email with Subject "Minium Can!"
     And I navigate to section "Trash"
     Then I should see an email with:
-      | Subject | Minium Can! |
+      | Subject    | Minium Can! |
+      | Recipients | Minium Bot  |
 
   Scenario: Delete an email from trash
     Given I'm at section "Trash"
