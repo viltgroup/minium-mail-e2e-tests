@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite failures="1" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="4" time="13.200487">
+<testcase classname="[Chrome] Search results in Google- should pass " name="Search something in google" time="5.343741">
+<system-out><![CDATA[Dado I'm at http://www.google.com/ncr.......................................passed
+Cuando I search for minium github...........................................passed
+Entonces a link for https://github.com/viltgroup/minium is displayed........passed
+]]></system-out>
+</testcase>
+<testcase classname="[Chrome] Search results in Google- should pass " name="Search something in google (results in a JSON file)" time="2.662656">
+<system-out><![CDATA[Dado I'm at http://www.google.com/ncr.......................................passed
+Cuando I search for Minium Github...........................................passed
+Entonces links corresponding to Minium Github are displayed.................passed
+]]></system-out>
+</testcase>
+<testcase classname="[Chrome] Search results in Google- should pass " name="Search something in google" time="2.609171">
+<system-out><![CDATA[Given I'm at http://www.google.com/ncr......................................passed
+When I search for minium github.............................................passed
+Then a link for https://github.com/viltgroup/minium is displayed............passed
+]]></system-out>
+</testcase>
+<testcase classname="[Chrome] Search results in Google- should pass " name="Search something in google (results in a JSON file)" time="2.584919">
+<system-out><![CDATA[Given I'm at http://www.google.com/ncr......................................passed
+When I search for Minium Github.............................................passed
+Then links corresponding to Minium Github are displayed.....................passed
+]]></system-out>
+</testcase>
+</testsuite>
