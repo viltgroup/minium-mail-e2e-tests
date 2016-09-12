@@ -5,12 +5,13 @@ var forms = require("forms"),
 Given(/^I'm at Minium Mail/, function() {
   browser.get(config.baseUrl);
   // we also need to set loading timeout properly
-  if (config.loadingTimeSeconds !== undefined) {
+  if (config.loadingTimeSeconds !== undefined || config.useHtml5FileUpload !== undefined) {
     var configureBtn = base.find("#configure");
 
     configureBtn.click();
     forms.fill({
-      "Loading time": config.loadingTimeSeconds
+      "Loading time": config.loadingTimeSeconds || 1,
+      "Use HTML5 File Upload": config.useHtml5FileUpload || false
     });
     forms.submit();
   }

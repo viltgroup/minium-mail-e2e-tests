@@ -8,15 +8,17 @@ Feature: Send Emails
   Scenario: Send an Email
     When I click on button "Compose"
     And I fill:
-      | Recipients | Rui Figueira   |
-      | Subject    | Minium Test    |
-      | Message    | My new Message |
+      | Recipients | Rui Figueira    |
+      | Subject    | Minium Test     |
+      | Message    | My new Message  |
+      | Attachment | minium_logo.png |
     And I click on button "Send"
     And I navigate to section "Sent"
     Then I should see an email with:
-      | Recipients | Rui Figueira   |
-      | Subject    | Minium Test    |
-      | Message    | My new Message |
+      | Recipients | Rui Figueira    |
+      | Subject    | Minium Test     |
+      | Message    | My new Message  |
+      | Attachment | minium_logo.png |
 
   Scenario: Reply to an Email
     When I click on the email with:
