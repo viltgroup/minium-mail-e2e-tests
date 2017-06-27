@@ -28,7 +28,7 @@ World(function () {
     .done();
 
   // change dimension of the browser
-  var d = new Dimension(1000, 1000);
+  var d = new Dimension(2000, 2000);
   browser.configure().window().setSize(d);
 
 }, function () {
