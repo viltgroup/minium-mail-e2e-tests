@@ -27,7 +27,7 @@ World(function () {
       .timeout(10, timeUnits.SECONDS)
     .done();
 
-    // change dimension of the browser
+  // change dimension of the browser
   var d = new Dimension(1000, 1000);
   browser.configure().window().setSize(d);
 
