@@ -103,6 +103,7 @@ When(/^I click on the email with:$/, function(datatable) {
   var mailRow = mails.filter(filter);
 
   mailRow.click();
+  scenario.embed(browser.screenshot().asBytes(), "image/png");
 });
 
 When(/^I delete an email with Subject "(.*?)"$/, function(subject) {
