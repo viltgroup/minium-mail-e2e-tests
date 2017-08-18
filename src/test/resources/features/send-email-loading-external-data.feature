@@ -1,6 +1,6 @@
 # language: en
 # ------------------------------------------------------------------------------
-Feature: Send Emails
+Feature: Send Emails (External Data)
 
   Background: 
     Given I'm at Minium Mail

@@ -4,6 +4,7 @@ var forms = require("forms"),
 
 Given(/^I'm at Minium Mail/, function() {
   browser.get(config.baseUrl);
+  scenario.embed(browser.screenshot().asBytes(), "image/png");
   // we also need to set loading timeout properly
   if (config.loadingTimeSeconds !== undefined || config.useHtml5FileUpload !== undefined) {
     var configureBtn = base.find("#configure");
@@ -15,7 +16,7 @@ Given(/^I'm at Minium Mail/, function() {
     });
     forms.submit();
   }
-  
+
   if (config.ramdomData) {
     var generateRandomDataBtn = base.find("#generate-random-data");
 
@@ -35,6 +36,7 @@ Given(/^an email with (.*?) "(.*?)" exists$/, function(field, value) {
 
   var mailRow = mails.filter(filter);
   expect(mailRow).to.have.size(1);
+  scenario.embed(browser.screenshot().asBytes(), "image/png");
 });
 
 
@@ -46,6 +48,7 @@ Given(/^an email with (.*?) "(.*?)" exists under "(.*?)"$/, function(field, valu
 
   sections.navigate(section);
   expect(mailRow).to.have.size(1);
+  scenario.embed(browser.screenshot().asBytes(), "image/png");
 });
 
 
@@ -56,6 +59,7 @@ Given(/^an email with (.*?) "(.*?)" doesn't exist$/, function(field, value) {
   var mailRow = mails.filter(filter);
 
   expect(mailRow).not.to.exist();
+  scenario.embed(browser.screenshot().asBytes(), "image/png");
 });
 
 
@@ -82,14 +86,16 @@ When(/^I click on button "(.*?)"$/, function(btnLabel) {
 When(/^I fill "(.*?)" with "(.*?)"$/, function(field, val) {
   var values = {};
   values[field] = val;
-  
+
   forms.fill(values);
+  scenario.embed(browser.screenshot().asBytes(), "image/png");
 });
 
 When(/^I fill:$/, function(datatable) {
   var values = datatable.rowsHash();
 
   forms.fill(values);
+  scenario.embed(browser.screenshot().asBytes(), "image/png");
 });
 
 When(/^I click on the email with:$/, function(datatable) {
@@ -97,6 +103,7 @@ When(/^I click on the email with:$/, function(datatable) {
   var mailRow = mails.filter(filter);
 
   mailRow.click();
+  scenario.embed(browser.screenshot().asBytes(), "image/png");
 });
 
 When(/^I delete an email with Subject "(.*?)"$/, function(subject) {
@@ -128,6 +135,6 @@ Then(/^I should see the following emails:$/, function(datatable) {
   filters.forEach(function (filter) {
     var mailRow = mails.filter(filter);
     expect(mailRow).to.exist();
+    scenario.embed(browser.screenshot().asBytes(), "image/png");
   });
 });
-

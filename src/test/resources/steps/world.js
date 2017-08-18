@@ -1,4 +1,5 @@
 var timeUnits = require("minium/timeunits");
+var Dimension = Packages.minium.Dimension;
 
 var base;
 
@@ -25,6 +26,10 @@ World(function () {
     .waitingPreset("slow")
       .timeout(10, timeUnits.SECONDS)
     .done();
+
+  // change dimension of the browser
+  var d = new Dimension(2000, 2000);
+  browser.configure().window().setSize(d);
 
 }, function () {
   base = undefined;
