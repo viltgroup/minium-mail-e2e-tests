@@ -1,6 +1,7 @@
 var File = Packages.java.io.File;
 
-function html5Upload(fld, value) {
+
+$.fn.html5Upload = function (value) {
   $(":root").apply(function () {
     if ($("#minium-upload").length === 0) {
       $("<input/>").attr({ id: 'minium-upload', type:'file' }).css("opacity", "0").appendTo("body");
@@ -11,7 +12,7 @@ function html5Upload(fld, value) {
   
   uploadFld.type(new File(config.uploadDir, value).getAbsolutePath());
   
-  fld.apply(function () {
+  $(this).apply(function () {
     var files = $("#minium-upload").get(0).files;
     var fld = $(this).get(0);
   
@@ -25,7 +26,7 @@ function html5Upload(fld, value) {
     
     fld.dispatchEvent(ev);
   });
-}
+};
 
 var forms = {
 
@@ -49,7 +50,7 @@ var forms = {
         // normal file upload
         if (value) fld.type(config.uploadDir + "/" + value);
       } else if (fld.waitForExistence().is(".drop-zone")) {
-        html5Upload(fld, value);
+        fld.html5Upload(value);
       } else {
         fld.fill(value);
       }
