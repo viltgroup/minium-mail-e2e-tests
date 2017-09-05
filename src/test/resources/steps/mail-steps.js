@@ -28,6 +28,7 @@ Given(/^I'm at Minium Mail/, function() {
     });
     forms.submit();
   }
+  browser.screenshot().saveTo('/tmp/screenshot.png');
 });
 
 Given(/^an email with (.*?) "(.*?)" exists$/, function(field, value) {
@@ -116,10 +117,14 @@ When(/^I move an email with Subject "(.*?)" to "(.*?)"$/, function(subject, sect
 
 When(/^I navigate to section "(.*?)"$/, function(section) {
   sections.navigate(section);
+  
+  // validate the URL of the section
+  expect(browser.getCurrentUrl() + "").to.be(config.baseUrl + "#/folders/" + section.toLowerCase());
 });
 
 Then(/^I should see an email with:$/, function(datatable) {
   var filter = datatable.rowsHash();
+  console.log("Email values: ", JSON.stringify(filter));
   var mailRow = mails.filter(filter);
   expect(mailRow).to.exist();
 });
