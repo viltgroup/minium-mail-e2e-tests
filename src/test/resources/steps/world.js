@@ -29,7 +29,7 @@ World(function () {
 
   // change dimension of the browser
   var d = new Dimension(2000, 2000);
-  browser.configure().window().setSize(d);
+  //browser.configure().window().setSize(d);
 
 }, function () {
   base = undefined;
