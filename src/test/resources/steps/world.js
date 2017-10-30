@@ -28,8 +28,8 @@ World(function () {
     .done();
 
   // change dimension of the browser
-  var d = new Dimension(2000, 2000);
-  browser.configure().window().setSize(d);
+  //var d = new Dimension(1600, 900);
+  browser.configure().window().maximize();
 
 }, function () {
   base = undefined;
