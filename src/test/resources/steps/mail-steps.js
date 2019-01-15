@@ -28,7 +28,6 @@ Given(/^I'm at Minium Mail/, function() {
     });
     forms.submit();
   }
-  browser.screenshot().saveTo('/tmp/screenshot.png');
 });
 
 Given(/^an email with (.*?) "(.*?)" exists$/, function(field, value) {
