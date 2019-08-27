@@ -3,8 +3,8 @@ Feature: Login
   Scenario: Login
     Given I'm at the login page
     When I submit the registration form with:
-      | email    | demo |
-      | password | demo |
+      | email    | demo       |
+      | password | demo_error |
     Then I should go to the homepage
 
   Scenario: Incorrect Login
