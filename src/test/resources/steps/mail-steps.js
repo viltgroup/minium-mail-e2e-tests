@@ -102,7 +102,7 @@ When(/^I click on the email with:$/, function(datatable) {
   var filter = datatable.rowsHash();
   var mailRow = mails.filter(filter);
 
-  mailRow.click();
+  mailRow.find(":checkbox").click();
   scenario.embed(browser.screenshot().asBytes(), "image/png");
 });
 

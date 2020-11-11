@@ -11,7 +11,7 @@ var mails = {
     var moveBtn = base.find("button").withText("Move");
     var sectionEntry = base.find(".dropdown-menu a").withText(section);
     
-    mailRow.click();
+    mailRow.find(":checkbox").click();
     moveBtn.click();
     sectionEntry.click();
   },
@@ -20,9 +20,9 @@ var mails = {
     var mailRow = tables.rows("#mail-list", filter);
     var removeBtn = base.find("button").withText("Delete");
     
-    mailRow.click();
+    mailRow.find(":checkbox").click();
     removeBtn.click();
   }
-}
+};
 
 if (typeof module !== 'undefined') module.exports = mails;
